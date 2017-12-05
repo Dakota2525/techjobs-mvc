@@ -12,7 +12,40 @@
 
     <!-- TODO #3 - Use the same list display from search.html -->
 
+    <div>
+        <div th:if="${jobs}">
+            <h3 th:text="${jobs.size()} + ' ' + Results"></h3>
+        </div>
+
+        <table th:class="job-listing" th:each="job : ${jobs}">
+            <tr th:each="entry : ${job}">
+                <td th:text="${entry.key}"></td>
+                <td th:text="${entry.value}"></td>
+            </tr>
+        </table>
+    </div>
+
+
+
+
+
 </div>
 
 </body>
 </html>
+
+
+<!--    <p> th:unless="${ListController.columnChoices}">No Results</p>
+
+    <ul>
+        <li> th:each="columns : ${columnChoices}">
+            <a th:href="@{/list/values(column=${column.key})}"
+               th:text="${column.value}"></a></li></li>
+        <li> th:each="columns : ${ListController.columnChoices}">
+            <a th:href="@{/list/values(column=${column.key})}"
+               th:text="${column.value}"></a></li>
+        <li> th:each="job : ${jobs}">
+            <a th:href="@{/list/values(column=${column.key})}"
+               th:text="${column.value}"></a></li>
+    </ul>
+-->

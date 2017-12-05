@@ -13,6 +13,7 @@
             <li th:each="column : ${columns}">
                 <a th:href="@{/list/values(column=${column.key})}" th:text="${column.value}"></a>
             </li>
+
         </ul>
     </div>
 
